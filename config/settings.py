@@ -40,8 +40,8 @@ INSTALLED_APPS = [
     'snsapp.apps.SnsappConfig',
     'django.contrib.sites',
     'allauth',
-    'allauth.account', 
-    'allauth.socialaccount', 
+    'allauth.account',
+    'allauth.socialaccount',
 ]
 
 
@@ -109,9 +109,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ja'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Tokyo'
 
 USE_I18N = True
 
@@ -131,17 +131,19 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 ###### ↓認証系の設定 #####
 AUTHENTICATION_BACKENDS = (
-   'django.contrib.auth.backends.ModelBackend',
-   'allauth.account.auth_backends.AuthenticationBackend',  
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
 )
 
 ACCOUNT_AUTHENTICATION_METHOD = 'username'
-ACCOUNT_USERNAME_REQUIRED = True 
+ACCOUNT_USERNAME_REQUIRED = True
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'
-ACCOUNT_EMAIL_REQUIRED = True 
+ACCOUNT_EMAIL_REQUIRED = True
 
-SITE_ID = 1 
+SITE_ID = 1
 
-LOGIN_REDIRECT_URL = 'home'          
+LOGIN_REDIRECT_URL = 'home'
 ACCOUNT_LOGOUT_REDIRECT_URL = '/accounts/login/'
+
+MIDDLEWARE.append("allauth.account.middleware.AccountMiddleware")
