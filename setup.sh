@@ -1,9 +1,9 @@
 #!/bin/bash
 
-python -m venv venv
+python3 -m venv venv
 . ./venv/bin/activate
 
 pip install -r ./requirements.txt
-python manage.py migrate
-python manage.py loaddata sample_data.json
-python manage.py runserver
+python3 manage.py migrate
+python3 manage.py loaddata sample_data.json
+python3 manage.py runserver
